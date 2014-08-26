@@ -1,0 +1,26 @@
+{% extends "DkAppBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/dkuser/css/signin.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="card card-signin">
+    <h2 class="form-signin-heading text-center">Заходите в Дом Культуры!</h2>
+    <form role="form" class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+        {% if error %}
+            <div>{{ error|trans }}</div>
+        {% endif %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <input type="text" id="username" class="form-control" placeholder="Логин" required="required" name="_username" value="{{ last_username }}" />
+        <input type="password" required="required" id="password" name="_password" placeholder="Пароль" class="form-control" />
+        <div class="checkbox"><label>
+            <input type="checkbox" value="remember-me"> {{ 'security.login.remember_me'|trans }}
+        </label></div>
+        <button id="_submit" type="submit" name="_submit" class="btn btn-lg btn-primary btn-block">{{ 'security.login.submit'|trans }}</button>
+    </form>
+</div>
+{% endblock body %}
