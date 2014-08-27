@@ -1,0 +1,20 @@
+{% extends 'DkAppBundle:Backend/Warehouse:layout.html.twig' %}
+
+{% block data %}
+<h1 class="page-header">Новая позиция на складе</h1>
+<form role="form" method="POST" action="{{ path('dk_admin_warehouse_add') }}">
+    {% for name, widget in form %}
+        {% if name != '_token' %}
+            <div class="form-group">
+                {{ form_label(widget) }}
+                {{ form_errors(widget) }}
+                {{ form_widget(widget, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div style="display: none;">
+        {{ form_rest(form) }}
+    </div>
+    <button type="submit" class="btn btn-lg">Сохранить</button>
+</form>
+{% endblock %}

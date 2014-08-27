@@ -1,0 +1,13 @@
+{% for name, widget in form %}
+    {% if name != '_token' %}
+        <div class="form-group">
+            {{ form_label(widget) }}
+            {{ form_errors(widget) }}
+            {{ form_widget(widget, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    {% endif %}
+{% endfor %}
+<div style="display: none;">
+    {{ form_rest(form) }}
+</div>
+<button type="submit" class="btn btn-lg">Сохранить</button>

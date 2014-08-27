@@ -1,0 +1,13 @@
+<td>{{ object.id }}</td>
+<td>{{ object.name }}</td>
+<td>{{ object.volume }}</td>
+<td>{{ object.price }}</td>
+<td>{{ object.updatedAt|date('Y-m-d H:i:s') }}</td>
+<td>
+    <a class="btn btn-primary" href="{{ path('dk_admin_warehouse_edit', {'id': object.id}) }}">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+    <a class="btn btn-danger" href="{{ path('dk_admin_warehouse_delete', {'id': object.id}) }}">
+        <span class="glyphicon glyphicon-trash"></span>
+    </a>
+</td>

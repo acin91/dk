@@ -1,0 +1,8 @@
+{% extends 'DkAppBundle:Backend/Warehouse:layout.html.twig' %}
+
+{% block data %}
+<h1 class="page-header">Редактировать позицию "{{ item.name }}"</h1>
+<form role="form" method="POST" action="{{ path('dk_admin_warehouse_edit', {'id': item.id}) }}">
+    {% include 'DkAppBundle:Backend/Warehouse:_form.html.twig' with {'form': form} only %}
+</form>
+{% endblock %}
