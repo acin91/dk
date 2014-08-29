@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class WarehouseType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,9 +15,6 @@ class WarehouseType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('category')
-            ->add('volume')
-            ->add('price')
         ;
     }
 
@@ -27,7 +24,7 @@ class WarehouseType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Dk\AppBundle\Entity\Warehouse\Item',
+            'data_class' => 'Dk\AppBundle\Entity\Warehouse\Category',
         ));
     }
 
@@ -36,6 +33,6 @@ class WarehouseType extends AbstractType
      */
     public function getName()
     {
-        return 'warehouse';
+        return 'category';
     }
 }

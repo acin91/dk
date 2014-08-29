@@ -8,7 +8,7 @@ use Doctrine\ORM\Query;
 /**
  * @author Zmicier Aliakseyeu <z.aliakseyeu@gmail.com>
  */
-class ItemRepository extends EntityRepository
+class CategoryRepository extends EntityRepository
 {
     /**
      * @return array
@@ -16,10 +16,6 @@ class ItemRepository extends EntityRepository
     public function getAll()
     {
         $qb = $this->createQueryBuilder('i');
-        $qb
-            ->select('i, c')
-            ->join('i.category', 'c')
-        ;
 
         return $qb->getQuery()->getResult(Query::HYDRATE_ARRAY);
     }

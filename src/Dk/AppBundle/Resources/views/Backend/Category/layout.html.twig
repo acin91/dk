@@ -1,0 +1,20 @@
+{% extends 'DkAppBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+<div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+        <li {{ is_current_route('dk_admin_category_list') ? 'class="active"' : '' }}><a href="{{ path('dk_admin_category_list') }}">Список</a></li>
+        <li {{ is_current_route('dk_admin_category_add') ? 'class="active"' : '' }}><a href="{{ path('dk_admin_category_add') }}">Добавить</a></li>
+    </ul>
+</div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    {% for message in app.session.flashbag.get('error') %}
+        <p class="flash-message bg-danger">{{ message }}</p>
+    {% endfor %}
+    {% for message in app.session.flashbag.get('success') %}
+        <p class="flash-message bg-success">{{ message }}</p>
+    {% endfor %}
+
+    {{ block('data') }}
+</div>
+{% endblock %}

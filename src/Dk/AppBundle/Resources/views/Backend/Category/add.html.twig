@@ -1,0 +1,8 @@
+{% extends 'DkAppBundle:Backend/Category:layout.html.twig' %}
+
+{% block data %}
+<h1 class="page-header">Новая категория</h1>
+<form role="form" method="POST" action="{{ path('dk_admin_category_add') }}">
+    {% include 'DkAppBundle:Backend:_form.html.twig' with {'form': form} only %}
+</form>
+{% endblock %}

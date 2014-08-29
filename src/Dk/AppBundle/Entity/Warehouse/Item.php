@@ -19,6 +19,11 @@ class Item
     protected $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Category")
+     */
+    protected $category;
+
+    /**
      * @ORM\Column(type="string", nullable=false)
      */
     protected $name;
@@ -138,5 +143,28 @@ class Item
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Dk\AppBundle\Entity\Warehouse\Category $category
+     * @return Item
+     */
+    public function setCategory(\Dk\AppBundle\Entity\Warehouse\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Dk\AppBundle\Entity\Warehouse\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

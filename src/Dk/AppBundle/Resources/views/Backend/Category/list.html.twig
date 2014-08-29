@@ -1,0 +1,23 @@
+{% extends 'DkAppBundle:Backend/Category:layout.html.twig' %}
+
+{% block data %}
+<h1 class="page-header">Категории</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Название</th>
+                <th>Дата создания</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>{% include 'DkAppBundle:Backend/Category:_list_row.html.twig' with {'object': item} only %}</tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
